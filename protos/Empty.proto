@@ -1,0 +1,4 @@
+syntax = "proto3";
+package Molder.Service;
+
+message Empty {}

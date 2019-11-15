@@ -1,0 +1,12 @@
+syntax = "proto3";
+package Molder.Service;
+
+import "Empty.proto";
+
+message Data{
+    bytes binary = 1;
+}
+
+service ImageService {
+    rpc UploadImage(stream Data) returns (Empty); 
+}
