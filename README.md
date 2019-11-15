@@ -8,4 +8,4 @@ This is a standalone image processing service for your toolbelt. Harnessing the 
 
 Use with caution. Experiment with small images and workloads (<300 uploads/s), watch for memory and cpu consumption levels before using in production.
 
-Besides you will probably want to make some modifications, currently it saves processed images to file sytem which is not a viable solution for any environment especially if you plan to tuck this in a container.
+Besides you will probably want to make some modifications, currently it saves processed images to file sytem which is not a viable solution for any environment especially if you plan to tuck this into a container.
