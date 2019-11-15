@@ -1,0 +1,33 @@
+{
+  "name": "molder",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "nodemon test/index.ts",
+    "watch": "nodemon --signal SIGTERM src/index.ts",
+    "build:dist": "npm run build:protos && tsc --pretty && npm run build:protos:dist",
+    "build:protos": "npm run build:protos:js && npm run build:protos:ts",
+    "build:protos:dist": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./dist/types --grpc_out=./dist/types --plugin=protoc-gen-grpc=./node_modules/grpc-tools/bin/grpc_node_plugin -I ./protos ./protos/*.proto",
+    "build:protos:js": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/types --grpc_out=./src/types --plugin=protoc-gen-grpc=./node_modules/grpc-tools/bin/grpc_node_plugin -I ./protos ./protos/*.proto",
+    "build:protos:ts": "protoc --plugin=protoc-gen-ts=./node_modules/grpc_tools_node_protoc_ts/bin/protoc-gen-ts --ts_out=./src/types -I ./protos ./protos/*.proto"
+  },
+  "keywords": [],
+  "author": "Garen Yondem",
+  "license": "ISC",
+  "dependencies": {
+    "grpc": "^1.24.2",
+    "sharp": "^0.23.2",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/sharp": "^0.23.0",
+    "grpc-caller": "^0.13.0",
+    "grpc-tools": "^1.8.0",
+    "grpc_tools_node_protoc_ts": "^2.5.7",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.5.0"
+  },
+  "engines": {
+    "node": ">=12 <13"
+  }
+}
