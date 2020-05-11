@@ -16,15 +16,16 @@
   "license": "MIT",
   "dependencies": {
     "grpc": "^1.24.2",
-    "sharp": "^0.23.2",
+    "sharp": "^0.25.2",
     "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "@types/sharp": "^0.23.0",
+    "@types/node": "^13.1.6",
+    "@types/sharp": "^0.25.0",
     "grpc-caller": "^0.13.0",
     "grpc-tools": "^1.8.0",
-    "grpc_tools_node_protoc_ts": "^2.5.8",
-    "nodemon": "^1.19.4",
+    "grpc_tools_node_protoc_ts": "^3.0.0",
+    "nodemon": "^2.0.3",
     "ts-node": "^8.5.3"
   },
   "engines": {
