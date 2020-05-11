@@ -2,6 +2,7 @@ import path from 'path';
 //@ts-ignore
 import caller from 'grpc-caller';
 import fs from 'fs';
+import grpc from 'grpc';
 
 const IMAGE_PATH = path.resolve(__dirname, '../assets/image_raw.png');
 const PROTO_PATH = path.resolve(__dirname, '../protos/ImageService.proto');
@@ -22,7 +23,11 @@ export default async function main() {
 
 async function uploadImage(stub: any, imagePath: string): Promise<void> {
     return new Promise((resolve, reject) => {
-        const { call, res } = stub.uploadImage();
+        // Example token implementation
+        const meta = new grpc.Metadata();
+        meta.add('x-access-token', 'super-secure-token');
+
+        const { call, res } = stub.uploadImage(meta);
 
         res.then((res: any) => {
             console.log({ res });
